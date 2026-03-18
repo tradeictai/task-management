@@ -53,14 +53,14 @@ jobs:
       - name: Deploy on EC2 via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.139.84.168.41 }}
-          username: ${{ secrets.ubuntu }}
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script_stop: true
           script: |
             set -e
-            cd ${{ secrets./root/new_folder/task-management }}
+            cd ${{ secrets.EC2_APP_DIR }}
 
             echo "Pulling latest code..."
             git fetch origin main
